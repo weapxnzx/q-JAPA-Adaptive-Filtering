@@ -1,25 +1,39 @@
 # q-JAPA Adaptive Filtering
 
-Implementation of the q-Jackson Affine Projection Algorithm (q-JAPA) for adaptive filtering applications.
+Implementation of the q-Jackson Affine Projection Algorithm (q-JAPA) for adaptive filtering under correlated inputs.
 
-## Description
-
-This repository contains the source code used in the development and evaluation of the q-JAPA algorithm, a q-calculus-based extension of the Affine Projection Algorithm (APA).
+## Overview
+This repository contains the reference implementation of the q-Jackson Affine Projection Algorithm (q-JAPA), a q-calculus-based extension of the classical Affine Projection Algorithm (APA). The proposed method incorporates the Jackson q-derivative into the adaptation process, introducing a data-dependent diagonal regularization mechanism that can improve convergence and tracking performance in correlated environments.
 
 ## Applications
 
 - ECG artifact cancellation
-- Acoustic noise cancellation
-- Real audio processing
 - Convergence dynamics analysis
+
+## Repository Structure
+
+q_japa_algorithm.py
+experiments/
+├── exp1_ecg_artifact_cancellation.py
+└── exp2_tracking_learning_curve.py
 
 ## Requirements
 
-- numpy
-- scipy
-- matplotlib
-- librosa
-- wfdb
+pip install -r requirements.txt
+
+## Running the Experiments
+
+### Experiment 1
+
+Demonstrates the application of q-JAPA to adaptive noise cancellation using real ECG recordings from the MIT-BIH Arrhythmia Database.
+
+python experiments/exp1_ecg_artifact_cancellation.py
+
+### Experiment 2
+
+Evaluates the tracking performance of q-JAPA under abrupt system changes and compares its learning behavior against the classical JAPA algorithm (q = 1).
+
+python experiments/exp2_tracking_learning_curve.py
 
 ## Author
 
